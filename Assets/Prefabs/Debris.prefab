@@ -21,10 +21,10 @@ GameObject:
   - component: {fileID: 4004985842427912}
   - component: {fileID: 212008159210870354}
   - component: {fileID: 50194832431065306}
-  - component: {fileID: 61276693676705128}
+  - component: {fileID: 60440753398098930}
   m_Layer: 0
-  m_Name: Square
-  m_TagString: Untagged
+  m_Name: Debris
+  m_TagString: Asteroid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37,7 +37,7 @@ Transform:
   m_GameObject: {fileID: 1424948541252294}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -55,15 +55,15 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1000
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &61276693676705128
-BoxCollider2D:
+--- !u!60 &60440753398098930
+PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -84,9 +84,22 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.005563736, y: 0.21481788}
+      - {x: -0.12968647, y: 0.135548}
+      - {x: -0.3288414, y: 0.11119856}
+      - {x: -0.45729184, y: 0.037695594}
+      - {x: -0.4711408, y: -0.14191094}
+      - {x: -0.40924525, y: -0.25800776}
+      - {x: -0.33040375, y: -0.3395186}
+      - {x: -0.1875, y: -0.32617226}
+      - {x: 0.31061196, y: -0.14778712}
+      - {x: 0.4030918, y: -0.049916405}
+      - {x: 0.4630834, y: 0.039977357}
+      - {x: 0.45462275, y: 0.20143041}
+      - {x: 0.3860159, y: 0.2907589}
+      - {x: 0.19036615, y: 0.2930342}
 --- !u!212 &212008159210870354
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -121,7 +134,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4b5b153d3b770e340a3db82bfae42a56, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b70c412effe686f4da3e6cd76dda951a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

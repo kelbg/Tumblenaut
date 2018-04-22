@@ -3,10 +3,14 @@
 public class ObjectGenerator : MonoBehaviour {
     public GameObject[] debrisPrefabs;
     public const int Length = 500;
-    private int minSpacingX = 2;
-    private int maxSpacingX = 10;
-    private int minHeightY = -8;
-    private int maxHeightY = 8;
+    public const int MaxForce = 120;
+    public const int MaxObjects = 2000;
+    private float minSpacingX = 2f;
+    private float maxSpacingX = 10f;
+    private float minHeightY = -8f;
+    private float maxHeightY = 8f;
+    private float minScale = 2;
+    private float maxScale = 3;
     private Vector2 lastPos;
 
     private void Start() {
@@ -18,18 +22,26 @@ public class ObjectGenerator : MonoBehaviour {
         int count = 0;
 
         while (lastPos.x < Length) {
-            int posX = Random.Range(minSpacingX, maxSpacingX);
-            int posY = Random.Range(minHeightY, maxHeightY);
-            Vector2 pos = new Vector2(lastPos.x + posX, posY);
-            Instantiate(debrisPrefabs[0], pos, Quaternion.identity);
+            float posX = Random.Range(minSpacingX, maxSpacingX);
+            float posY = Random.Range(minHeightY, maxHeightY);
+            int index = Random.Range(0, debrisPrefabs.Length);
 
-            print("Object position: " + pos);
+            Vector2 pos = new Vector2(lastPos.x + posX, posY);
+            GameObject newGO = Instantiate(debrisPrefabs[index], pos, Quaternion.identity);
+
+            Vector2 force = new Vector2(Random.Range(0f, MaxForce), Random.Range(0f, MaxForce));
+            float scale = Random.Range(minScale, maxScale);
+            newGO.transform.Rotate(0, 0, Random.Range(0f, 360));
+            newGO.transform.localScale = new Vector2(scale, scale);
+            newGO.GetComponent<Rigidbody2D>().AddForceAtPosition(force, Vector2.right);
+            
+
             lastPos = pos;
             count++;
 
             // HACK: Prevents freezing
-            if (count > 2000) {
-                print("Something has gone terribly wrong");
+            if (count > MaxObjects) {
+                Debug.LogError("Something has gone terribly wrong. [Too many objects generated]");
                 break;
             }
         }
