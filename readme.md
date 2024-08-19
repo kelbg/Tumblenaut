@@ -21,7 +21,7 @@ This game was made using:
 
 ## How to play
 <!-- To run the game, clone the repository and open it in Unity. Ensure you have the necessary dependencies installed. --> 
-[Click here](https://tumblenaut.itch.io/) to play the game on itch.io. To run the project, clone the repository and open it in Unity.
+[Click here](https://kelbg.itch.io/tumblenaut) to play the game on itch.io. To run the project, clone the repository and open it in Unity.
 
 ## License
 This project is licensed under the MIT License. For more information, see the LICENSE file.
